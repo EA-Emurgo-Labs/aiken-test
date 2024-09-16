@@ -1,5 +1,4 @@
 use aiken/fuzz as f
-use cardano/assets.{Value}
 
 pub fn fuzzAssets() -> Fuzzer<(ByteArray, ByteArray, Int)> {
   f.map3(
