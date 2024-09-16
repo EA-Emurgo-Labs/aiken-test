@@ -21,3 +21,11 @@ pub fn mergeValueList(valueList: List<(ByteArray, ByteArray, Int)>) -> Value {
     }
   }
 }
+
+pub fn makeValueTuple(
+  p: List<ByteArray>,
+  a: List<ByteArray>,
+  i: List<Int>,
+) -> List<(ByteArray, ByteArray, Int)> {
+  list.map3(p, a, i, fn(p, a, i) { (p, a, i) })
+}
