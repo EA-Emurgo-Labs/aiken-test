@@ -4,6 +4,8 @@ This is a testing suite for Aiken
 
 This repo is a suite of testing tools for testing smart contracts in akien.
 
+![image](./testSuiteExample.png)
+
 ## Unit Testing
 
 A set of helper functions to create unit tests for helper functions and validators.
