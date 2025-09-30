@@ -18,7 +18,7 @@ Inputs, Outputs, Script & Wallet Addresses
 
 ### Value
 
-Value has some functions for turning Lists or Tuples into Values. 
+Value has some functions for turning Lists or Tuples into Values.
 
 These are good to combine with Fuzzers to create random Values for your validator tests.
 
@@ -32,7 +32,7 @@ This module creates lists and tuples of hashes at 28Bytes, which is the length o
 
 ### Ints
 
-The Ints module creates lists and tuples of ints between 1-10. 
+The Ints module creates lists and tuples of ints between 1-10.
 
 This is to minimise the variation for validator value tests so values used will sometimes match, helping to create failing tests with props.
 
@@ -80,7 +80,7 @@ Output:
 ```
 use units/tx as t
 
-let out1 = 
+let out1 =
   t.output(
     t.walletAddress(#"face"),
     assets.form_lovelace(200),
@@ -88,14 +88,14 @@ let out1 =
   )
 ```
 
-Input: 
+Input:
 
 ```
 use units/tx as t
 
 asset = (#"dead", #"beef", 1)
 
-let in1 = 
+let in1 =
   t.input(
     t.oref(#"feed", 1),
     t.output(
@@ -117,7 +117,7 @@ This means you will only get the 'passing' case returned for you to compare, whi
 Generally you will start with a passing unit test and then duplicate it and add a fuzzer to create your property test
 
 ```
-use props/ints as i 
+use props/ints as i
 
 test myPropTest((inAmt, outAmt) via i.twoTens()) fail {
   let inValue = assets.from_lovelace(inAmt)
@@ -127,7 +127,7 @@ test myPropTest((inAmt, outAmt) via i.twoTens()) fail {
 }
 ```
 
-in our example we have a hypothetical validator test. 
+in our example we have a hypothetical validator test.
 
 If we expect the validator to pass when inValue == outValue, then this test should only fail IF the fuzzer generates a matching pair.
 
@@ -135,5 +135,5 @@ Otherwise validaton should fail and so the test will pass.
 
 ---
 
-Poject notes during development here: 
+Project notes during development here:
 [Notes](./Notes.md)
